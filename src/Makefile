@@ -3,8 +3,8 @@ OPENCV_HOME = /usr/include/opencv/
 CC = g++
 CFLAG = -std=c++11
 LIB = -lopencv_core -lopencv_objdetect -lopencv_highgui -lopencv_imgproc
-INC = -I../include/ -I$(OPENCV_HOME)
-OBJ = ArgumentParser.o FaceDetector.o LBPFeatureExtractor.o FaceNormalizer.o sirius_util.o
+INC = -I../include/ -I$(OPENCV_HOME) -I../include/intraface/
+OBJ = ArgumentParser.o FaceDetector.o LBPFeatureExtractor.o FaceNormalizer.o sirius_util.o binary_model_file.o
 EXE = face-detection extract-lbp
 
 all:face-detection extract-lbp

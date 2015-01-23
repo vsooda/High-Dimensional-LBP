@@ -41,11 +41,13 @@ int main(int argc, const char **argv)
 
    const int DEBUG = atoi(argParser.getArgument("-d").c_str());
    LBPFeatureExtractor lbpFeatureExtractor(scales, patchSize, gridNumX, gridNumY, true);
-   string detectionModel(argParser.getArgument("-m") + "/DetectionModel-v1.5.yml");
-   string trackingModel(argParser.getArgument("-m") + "TrackingModel-v1.10.yml");
+   //string detectionModel(argParser.getArgument("-m") + "/DetectionModel-v1.5.yml");
+   //string trackingModel(argParser.getArgument("-m") + "TrackingModel-v1.10.yml");
+   string detectionModel(argParser.getArgument("-m") + "/DetectionModel-v1.5.bin");
+   string trackingModel(argParser.getArgument("-m") + "TrackingModel-v1.10.bin");
    INTRAFACE::XXDescriptor xxd(4);
    INTRAFACE::FaceAlignment *fa;
-   fa = new INTRAFACE::FaceAlignment(detectionModel, trackingModel, &xxd);
+   fa = new INTRAFACE::FaceAlignment(detectionModel.c_str(), trackingModel.c_str(), &xxd);
    if (!fa->Initialized()) {
       cerr << "FaceAlignmentDetect cannot be initialized." << endl;
       return -1;
